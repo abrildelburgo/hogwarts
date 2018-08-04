@@ -24,6 +24,23 @@ caracteriza(ravenclaw,responsabilidad).
 caracteriza(hufflepuff,amistad).
 caracteriza(hufflepuff,diversion).
 
+lugarProhibido(bosque,50).
+lugarProhibido(seccionRestringida,10).
+lugarProhibido(tercerPiso,75).
+
+alumnoFavorito(flitwick, hermione).
+alumnoFavorito(snape, draco).
+alumnoOdiado(snape, harry).
+
+hizo(ron, buenaAccion(jugarAlAjedrez, 50)).
+hizo(harry, fueraDeCama).
+hizo(hermione, irA(tercerPiso)).
+hizo(hermione, responder(“Donde se encuentra un Bezoar”, 15, snape)).
+hizo(hermione, responder(“Wingardium Leviosa”, 25, flitwick)).
+hizo(ron, irA(bosque)).
+hizo(draco, irA(mazmorras)).
+
+
 %PUNTO1
 permiteEntrar(slytherin,Mago):-
 	mago(Mago,Sangre,_),
@@ -69,7 +86,7 @@ esBuenAlumno(Mago):-
 	hizo(Mago,_),
 	forall(hizo(Mago,Accion),not((tipoAccion(Mago,Accion,Puntaje),Puntaje<0))).
 
-%PUNTOS6
+%PUNTO6
 puntosDeCasa(Casa,PuntajeTotal):-
 	casa(Casa),
 	findall(Puntaje,obtenerPuntaje(Casa,Puntaje),ListaPuntajes),
